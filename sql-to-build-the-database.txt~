@@ -1,0 +1,17 @@
+create table Customer(id int not null auto_increment unique primary key, username varchar(30) not null, password varchar(30) not null);
+
+create table Item(id int not null auto_increment unique primary key, name varchar(30) not null, price double);
+
+create table ShoppingCart(id int, customerid int, itemid int, foreign key(customerid) references Customer(id), foreign key(itemid) references Item(id));
+
+---insert & update---
+insert into Customer(username,password) values('Christofer', 'test');
+
+insert into Item(name, price) values('Volvo V70', 500000);
+
+insert into Item(name, price) values('Ford Focus', 200000);
+
+
+
+
+update ShoppingCart set customerid = 1, itemid = 1 where id = 1;
